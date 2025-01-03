@@ -22,7 +22,7 @@
             padding: 20px;
         }
         .contact-form {
-            width: 100%;
+            width: 90%;
             max-width: 600px;
             background: rgba(28, 28, 28, 0.9);
             border-radius: 10px;
@@ -31,7 +31,7 @@
             border: 2px solid #03e9f4;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
             text-align: center;
             color: #fff;
@@ -50,7 +50,7 @@
             width: 100%;
             padding: 1rem;
             font-size: 1rem;
-            border: 1px solid #444;
+            border: 1px solid #03e9f4;
             border-radius: 5px;
             background-color: #1a1a1a;
             color: #fff;
@@ -86,10 +86,28 @@
         /* Responsive Styles */
         @media (max-width: 768px) {
             .contact-form {
-                padding: 30px;
+                padding: 20px;
+                border-width: 1px;
             }
             h1 {
                 font-size: 2rem;
+            }
+            .form-control {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .form-control {
+                font-size: 0.85rem;
+                padding: 0.7rem;
             }
         }
     </style>
@@ -111,17 +129,20 @@
                     <label for="phone">Phone Number</label>
                     <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
                 </div>
-                <!-- <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Enter the subject" required>
-                </div> -->
                 <div class="form-group">
                     <label for="message">Message *</label>
                     <textarea class="form-control" id="message" rows="4" placeholder="Type your message here..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" id = "sendMessageButton" class="submit-btn">Send Message</button>
             </form>
         </div>
     </div>   
+  
+   <script>
+        document.getElementById("sendMessageButton").addEventListener("click", function () {
+            alert("Your message has been sent!");
+        });
+    </script>
+
 </body>
 </html>
